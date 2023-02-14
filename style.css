@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+#button{
+    width: 180px;
+    height: 70px;
+    border: none;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Create the ripple element */
+#button::before{
+    content: "";
+    height: 0px;
+    width: 0px;
+    background-color: rgb(16, 220, 16);
+    position: absolute;
+    border-radius: 50%;
+    top: var(--positionTop);
+    left: var(--positionLeft);
+    transform: translate(-50%, -50%);
+    transition: height 0.5s, width 0.5s;
+}
+/* Change the ripple element scale for completely fill the button element */
+#button:hover::before{
+    width: 500px;
+    height: 500px;
+}
+#button span{
+    position: relative;
+    z-index: 1;
+}
+#button:hover{
+    color: black;
+}
